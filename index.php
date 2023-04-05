@@ -25,6 +25,7 @@
 <body class="bg-gray-200">
 
     <?php
+        include_once './config.php';
         include_once './componentes/sign-in.php';
     ?>
 
