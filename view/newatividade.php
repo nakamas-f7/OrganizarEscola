@@ -21,10 +21,9 @@
     ?>
 
     <main class="main-content border-radius-lg ">
+    <hr class="my-4">
         <?php
-            include_once '../componentes/barsuperior.php';
             include_once '../componentes/formmateria.php';
-
         ?>
     </main>
 

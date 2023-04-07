@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
-          <a  href="../index.php" class="nav-link text-body font-weight-bold px-0">
+          <a  href="perfil.php" class="nav-link text-body font-weight-bold px-0">
             <i class="fa fa-user me-sm-1"></i>
             <span class="d-sm-inline d-none ">Perfil</span>
           </a>

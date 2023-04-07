@@ -12,32 +12,23 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
+    <script>
+      function localx(){
+        window.location = "./perfil.php"
+      }
+    </script>
   </head>
   <body class="g-sidenav-show  bg-gray-100">
-
-    
     <?php
-        include_once '../config.php';
-
-        $id = $_GET["edite"];
-
-        $sql = "SELECT * FROM T_materia_medio WHERE idT_materia = :Id";
-
-        $query = $connect->prepare($sql);
-
-        $query->execute(Array(
-          ":Id" => $id,
-        ));
-
-        $value = $query->fetch();
-
-        include_once '../componentes/navBar.php';
+      include_once '../controller/dadosperfil.php';
+      include_once '../componentes/navBar.php';
     ?>
 
     <main class="main-content border-radius-lg ">
-      <hr class="my-4">
         <?php
-            include_once '../componentes/editmateria.php';
+            include_once '../componentes/editperfil.php';
+            
         ?>
     </main>
 

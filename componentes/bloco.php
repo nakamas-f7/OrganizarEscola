@@ -18,7 +18,12 @@
                             </form>
                         </div>
                         <div class="text-end pt-1">
-                            <h4 class="mb-0"><?php echo $dados["nome"]; ?></h4>
+                            <h4 class="mb-0"><?php
+                            if($dados['nome'] != ""){
+                                echo $dados['nome'];
+                            }else{
+                                echo "Sem Nome";
+                            } ?></h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
