@@ -1,4 +1,17 @@
 <?php
+    function Pastas($user){
+        if(!file_exists('../arquivos/users/'. $user)){
+            mkdir('../arquivos/users/'. $user);
+            if(file_exists('../arquivos/users/'. $user)){
+                mkdir('../arquivos/users/'. $user . '/chats');
+                mkdir('../arquivos/users/'. $user . '/imgs');
+                mkdir('../arquivos/users/'. $user . '/videos');
+            }else{
+                echo '<script>alert("Não deu")</script>';
+            }
+
+        }
+    }
     include_once '../config.php';
 
     $Senha = $_POST["Senha"];
@@ -10,7 +23,8 @@
     $linhas = $verificar->rowCount();
 
     if($linhas != null){
-        header('location: ../view/sign-up.php') ;
+        echo '<script>alert("Usuário já existe")</script>'.
+         '<script>window.location = "../view/sign-up.php"</script>';
         exit();
     }else{
         $salvar = $connect->prepare("INSERT INTO T_user(nome, email, senha) VALUES (:Nome, :Email, :Senha)");
@@ -21,6 +35,7 @@
             ":Senha" => $Senha,
         ));
 
+        Pastas($Email);
 
         header("location: ../index.php");
         exit();      

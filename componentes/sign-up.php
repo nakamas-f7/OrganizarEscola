@@ -13,7 +13,7 @@
                   <form action="../controller/registrar.php" role="form" method="post">
                     <div class="input-group input-group-outline mb-3">
                       <label for="Nome" class="form-label">Seu Nome</label>
-                      <input type="text" id="Nome" name="Nome" class="form-control">
+                      <input maxlength="15" type="text" id="Nome" name="Nome" class="form-control">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label for="Email" class="form-label">Seu E-mail</label>

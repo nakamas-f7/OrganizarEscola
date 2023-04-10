@@ -1,17 +1,21 @@
 <div class="container">
     <div class="main-body">
-        <hr class="my-4">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-4">
+        <hr class="my-2">
+        <div class="row">
+            <?php 
+                include_once '../controller/user.php'; 
+                while($dados = $query->fetch()){
+                    
+            ?>
+            <div class="col-12 col-md-4 mt-4" >
                 <div class="card">
-                    <div class="card-body">
+                    <div  class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <div class="row col-12 justify-content-end ">
-                                <a style="width: 75px;" class="btn btn-primary" href="./editperfil.php">Edit</a>
-                            </div>
 							<div alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10"></div>
+								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10">
+
+								</div>
 							</div>
                             <div class="mt-3">
                                 <h4><?php echo $dados["nome"] ;?></h4>
@@ -80,9 +84,11 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
+        
         <div class="row justify-content-end">
-            <div style="cursor: pointer;" onclick="localx()" class="me-4 icon icon-lg icon-shape bg-gradient-primary text-center border-radius-xl">
+            <div style="cursor: pointer;" onclick="localx()" class="me-4 my-3 icon icon-lg icon-shape bg-gradient-primary text-center border-radius-xl">
                 <i class="material-icons opacity-10">logout</i>
             </div>                  
         </div>

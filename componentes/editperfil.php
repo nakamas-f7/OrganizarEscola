@@ -12,10 +12,20 @@
 							</div>                  
 						</div>
 						<div class="d-flex flex-column align-items-center text-center">
-							<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+						
+							<div alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<div  alt="Admin" class="row rounded-circle  p-1 bg-primary position-absolute  ">
+									<button style="height: 45px ; width: 45px; border: transparent; " class="d-flex justify-content-center align-items-center col-12 rounded-circle  bg-primary ">
+										<i class="material-icons opacity-5">edit</i>
+									</button>
+								</div>	
+								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10"></div>
+							</div>
+
+
 							<div class="mt-3">
 								<h4><?php echo $dados["nome"] ?></h4>
-								<p class="text-muted font-size-sm"> <?php echo $dados["descricao"] ?> </p>
 								<button class="btn btn-primary">Solicitar</button>
 								<button class="btn btn-outline-primary">Menssagem</button>
 							</div>
@@ -85,18 +95,7 @@
 								<h6 class=" col-sm-2">Apelido</h6>
 								<div class="col-sm-10">
 									<label style="width: 100%;" class="form-label">
-										<input type="text" class="form-control border border-dark border border-1 border-opacity-5" name="NomeNovo" value="<?php echo $dados["nome"] ?>" placeholder="Apelido">				
-									</label>
-									<div class="invalid-feedback" >
-										Nome Invalido
-									</div>
-								</div>
-							</div>
-							<div class="row mb-3 col-sm-12 d-flex justify-content-center align-items-center text-start">
-								<h6 class=" col-sm-2">Descrição</h6>
-								<div class="col-sm-10">
-									<label style="width: 100%;" class="form-label">
-										<input type="text" class="form-control border border-dark border border-1 border-opacity-5" name="DescricaoNovo" value="<?php echo $dados["descricao"] ?>" placeholder="Breve Descrição">				
+										<input type="text" class="form-control border border-dark border border-1 border-opacity-5" name="NomeNovo" value="<?php echo $dados["nome"] ?> " maxlength="15" placeholder="Apelido">				
 									</label>
 									<div class="invalid-feedback" >
 										Nome Invalido
