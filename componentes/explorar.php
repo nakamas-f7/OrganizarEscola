@@ -1,3 +1,8 @@
+<script>
+  function localx(){
+    window.location = "./home.php";
+  }
+</script>
 <div class="container">
     <div class="main-body">
         <hr class="my-2">

@@ -1,5 +1,12 @@
-<div class="container">
+<script>
+	function x(){
+	const input = document.getElementById('inputUpload')
+	input.click()
+	}
+</script>
 
+
+<div class="container">
 	<div class="main-body">
 		<hr class="my-4">
 		<div class="row">
@@ -14,11 +21,12 @@
 						<div class="d-flex flex-column align-items-center text-center">
 						
 							<div alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div  alt="Admin" class="row rounded-circle  p-1 bg-primary position-absolute  ">
-									<button style="height: 45px ; width: 45px; border: transparent; " class="d-flex justify-content-center align-items-center col-12 rounded-circle  bg-primary ">
+								<div alt="Admin" class="row rounded-circle  p-1 bg-primary position-absolute  ">
+									<button onclick="x()" id="buttonUpload" style="height: 45px ; width: 45px; border: transparent; " class="d-flex justify-content-center align-items-center col-12 rounded-circle  bg-primary ">
 										<i class="material-icons opacity-5">edit</i>
 									</button>
-								</div>	
+								</div>
+
 								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10"></div>
 							</div>
@@ -88,8 +96,11 @@
 				</div>
 			</div>
 			<div class="col-lg-8">
-				<form action="../controller/editperfil.php" method="post">
+				<form action="../controller/editperfil.php" enctype="multipart/form-data" method="post">
 					<div class="card">
+						<label for="inputUpload">
+							<input name="Perfil" id="inputUpload" class="d-none" type="file">
+						</label>
 						<div class="card-body">
 							<div class="row mb-3 col-sm-12 d-flex justify-content-center align-items-center text-start">
 								<h6 class=" col-sm-2">Apelido</h6>

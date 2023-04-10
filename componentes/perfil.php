@@ -15,8 +15,6 @@
 							</div>
                             <div class="mt-3">
                                 <h4><?php echo $dados["nome"] ;?></h4>
-                                <button class="btn btn-primary">Solicitar</button>
-                                <button class="btn btn-outline-primary">Mensagem</button>
                             </div>
                         </div>
                         <hr class="my-4">
