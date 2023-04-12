@@ -6,6 +6,7 @@
                 mkdir('../arquivos/users/'. $user . '/chats');
                 mkdir('../arquivos/users/'. $user . '/imgs');
                 mkdir('../arquivos/users/'. $user . '/videos');
+                mkdir('../arquivos/users/'. $user . '/imgs/fotoperfil' );
             }else{
                 echo '<script>alert("Não deu")</script>';
             }
