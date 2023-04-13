@@ -9,9 +9,14 @@
                             <div class="row col-12 justify-content-end ">
                                 <a style="width: 75px;" class="btn btn-primary" href="./editperfil.php">Edit</a>
                             </div>
-							<div alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10"></div>
+							<div  class="rounded-circle " width="110">
+								<img style="overflow: hidden; width: 110px; height: 110px;" src="<?php
+									if($dados['fotoperfil'] != ""){
+										echo $dados['fotoperfil'];
+									}else{
+										echo "https://bootdey.com/img/Content/avatar/avatar6.png";
+									}
+								?>"  class="rounded-circle p-1 bg-dark" >
 							</div>
                             <div class="mt-3">
                                 <h4><?php echo $dados["nome"] ;?></h4>

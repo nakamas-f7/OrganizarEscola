@@ -23,7 +23,7 @@
     <main class="main-content border-radius-lg ">
         <?php
             include_once '../componentes/barsuperior.php';
-            
+            include_once '../componentes/home.php';
         ?>
     </main>
 

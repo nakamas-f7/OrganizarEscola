@@ -19,16 +19,20 @@
 							</div>                  
 						</div>
 						<div class="d-flex flex-column align-items-center text-center">
-						
-							<div alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div alt="Admin" class="row rounded-circle  p-1 bg-primary position-absolute  ">
+							<div class="rounded-circle " width="110">
+								<div class="row rounded-circle position-absolute  ">
 									<button onclick="x()" id="buttonUpload" style="height: 45px ; width: 45px; border: transparent; " class="d-flex justify-content-center align-items-center col-12 rounded-circle  bg-primary ">
 										<i class="material-icons opacity-5">edit</i>
 									</button>
 								</div>
 
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div alt="Admin" class="rounded-circle p-1 bg-primary" width="10"></div>
+								<img style="overflow: hidden; width: 110px; height: 110px;" src="<?php
+									if($dados['fotoperfil'] != ""){
+										echo $dados['fotoperfil'];
+									}else{
+										echo "https://bootdey.com/img/Content/avatar/avatar6.png";
+									}
+								?>" class="rounded-circle p-1 bg-primary" >
 							</div>
 
 

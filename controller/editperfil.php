@@ -8,49 +8,45 @@
     $Facebook = $_POST["FacebookNovo"];
     $Twitter = $_POST["TwitterNovo"];
 
-    $_arq['pasta'] = "../arquivos/users/" . $dados['email'] . '/imgs';
+    if($_FILES['Perfil']['name'] != ""){
+        $_arq['pasta'] = "../arquivos/users/" . $dados['email'] . '/imgs/fotoperfil';
 
-    $_arq['tamanho'] = 1024 * 1024 * 2;
+        $_arq['tamanho'] = 1024 * 1024 * 20;
 
-    $_arq['extensoes'] = array('jpg', 'png', 'gif');
+        $_arq['extensoes'] = array('jpg', 'png', 'gif');
 
-    $_arq['renomeia'] = false;
+        $_arq['renomeia'] = true;
 
-    if($_FILES['Perfil']['error'] != 0){
-        die('error ao carregar upload');
-        exit;
-    }
+        $extensao =  explode('.', $_FILES['Perfil']['name']);
+        $extensao = strtolower(end($extensao));
 
-    $extensao =  explode('.', $_FILES['Perfil']['name']);
-    $extensao = strtolower(end($extensao));
+        if(array_search($extensao, $_arq['extensoes']) === false){
+            echo '<script>alert("Extensão de arquivo não reconhecida")</script>';
 
-    if(array_search($extensao, $_arq['extensoes']) === false){
-        echo '<h1>Extensão de arquivo não reconhecida</h1>';
+        }else if($_arq['tamanho'] < $_FILES['Perfil']['size']){
+            echo '<script>alert("Tamanho de Arquivo não permitido")</script>';
 
-    }else if($_arq['tamanho'] < $_FILES['Perfil']['size']){
-        echo '<h1>Tamanho de Arquivo não permitido</h1>';
+        }else{
+            if($_arq['renomeia'] == true){
+                $novonome = 'fotoperfil.'. $extensao;
+            }else{
+                $novonome = $_FILES['Perfil']['name'];
+                
+            }
+            
+            $url = $_arq['pasta'] . '/' . $novonome;
 
+            if(move_uploaded_file($_FILES['Perfil']['tmp_name'], $url)){
+                echo '<script> alert("Arquivo movido com sucesso") </script>';
+            }else{
+                echo '<script> alert("Não foi possivel fazer upload de imagem ") </script>';
+            }
+        }
     }else{
-        
-        if($_arq['renomeia'] == true){
-            $novonome = time(). $extensao;
-            
-        }else{
-            
-            $novonome = $_FILES['Perfil']['name'];
-            
-        }
-        echo "Aqui";
-        if(move_uploaded_file($_FILES['Perfil']['tmp_name'], $_arq['pasta'] . '/' . $novonome)){
-            echo '<script> alert("Arquivo movido com sucesso") </script>';
-        }else{
-            echo '<script> alert("Não foi possivel fazer upload de imagem ") </script>';
-        }
+        $url = $dados['fotoperfil'];
     }
 
-
-
-    $sql = "UPDATE t_user SET nome = :Nome, github = :Github, instagram = :Instagram, website = :Website, facebook = :Facebook, twitter = :Twitter WHERE idT_user = :SESSAO";
+    $sql = "UPDATE t_user SET nome = :Nome, github = :Github, instagram = :Instagram, website = :Website, facebook = :Facebook, twitter = :Twitter, fotoperfil = :FotoPerfil WHERE idT_user = :SESSAO";
 
     $query = $connect->prepare($sql);
 
@@ -61,11 +57,12 @@
         ":Website" => $Website,
         ":Facebook" => $Facebook,
         ":Twitter" => $Twitter,
+        ":FotoPerfil" => $url,
         ":SESSAO" => $_SESSION["Login"],
     ));
 
 
-    echo header("location: ../view/perfil.php");
+    header("location: ../view/perfil.php");
 
     exit();
 
